@@ -1,0 +1,10 @@
+#EH_final 1
+name = input("hi what's your name,   ")
+input(name)
+print("nice! cool name!")
+age = input("yo, how old are you?   ")
+input(age)
+print("nice! you look good for your age!")
+fav_color = input("finally, what is your favorite color?    ")
+print("nice so your name is", name ,"your age is", age ,"and your favorite color is", fav_color,"!" )
+print("now i know you!")
