@@ -18,6 +18,7 @@ story = (" once upon a time, a guy or gal named " + (Name) + " decided to " + (v
 + "," + " they went to the cash register to check out." + " After they checked out, " + (Name) +
 + " went to their " + (car) + " and began to drive away! But just before they thought they were home free, they ran into a problem. they " 
 + (incident) + "," + " So he wasn't able to get home! But in the end, he managed to get home anyways, because he bought a new "
-+ (car2) + "! So in the end, he not only got home, got his stuff from " + (place) + "," " but he got a new car too!")
++ (car2) + "! So in the end, he not only got home, got his stuff from " + (place) + "," + " but he got a new car too!")
+
 
 print(story)
