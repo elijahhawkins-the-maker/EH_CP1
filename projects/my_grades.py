@@ -1,4 +1,4 @@
-#EH_my_grades
+#EH_Average_grade
 grade_1 = int(input("what is your grade in your 1st class:   "))
 
 grade_2 = int(input("what is your grade in your 2nd class:     "))
