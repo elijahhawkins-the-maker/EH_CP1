@@ -2,13 +2,15 @@
 gpa = float(input("What is your gpa?   "))
 fname = input("what is your first name?    ")
 lname = input("what is your last name?    ")
-fphone = float(input("enter the first three digits of your phone number: "))
-sphone = float(input("enter the second three digits of your phone number:    "))
-tphone = float(input("enter the last four digits of your phone number:   "))
+fphone = input("enter the first three digits of your phone number: ")
+sphone = input("enter the second three digits of your phone number:    ")
+tphone = input("enter the last four digits of your phone number:   ")
 
-phone = (fphone, " ", sphone, " ", tphone)
+phone = (fphone + " " + sphone + " " + tphone)
 gpa2 = round(gpa, 1)
 
 print(gpa2)
-print(fname.title, " ", lname.title)
+name = (fname + " " + lname)
+name2 = name.capitalize
+print(name2)
 print(phone)
