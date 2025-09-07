@@ -11,6 +11,6 @@ gpa2 = round(gpa, 1)
 
 print(gpa2)
 name = (fname + " " + lname)
-name2 = name.capitalize
+name2 = name.title()
 print(name2)
 print(phone)
