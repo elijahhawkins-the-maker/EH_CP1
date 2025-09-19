@@ -44,5 +44,5 @@ elif e == ("ex"):
     ex3 = float(ex ** ex2)
     ex4 = round(ex3, 2)
     print(ex, "**", ex2, "=", ex4)
-
-print("Yo your problem should now be solved!".title())
+else: 
+    print("not a valid operator, bruh")
