@@ -46,3 +46,4 @@ elif e == ("ex"):
     print(ex, "**", ex2, "=", ex4)
 else: 
     print("not a valid operator, bruh")
+

@@ -11,7 +11,10 @@ print(numone + numtwo)
 
 # have a well thought plan
 
+#run time error
+den = random.randint(0,5)
 
+print(10/den)
 
 
 
@@ -43,7 +46,7 @@ print(numone + numtwo)
 
 
 import time as clock
-
+import random
 num = 1
 while True:
     print(num)
