@@ -29,7 +29,7 @@ def start_game():
        
         elif guess < number_to_guess:
             print("Too low! Try again.")  
-
+        # logic error, you need this in order to make the amount of attempts 10!
         attempts += 1
         # logic error: there is no need for a continue function
     print("Game Over. Thanks for playing!")
