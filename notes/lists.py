@@ -24,3 +24,5 @@ chunky_peanut_butter_with_extra_peanuts_board = [[1,2,3],
                                                         ]
 
 veggies = {"spinach", "kale", "bruh", "carrot"}
+
+print(veggies)
