@@ -8,3 +8,8 @@ for num in nums:
         print(f"{num} is only half of {num*2} It is a large number")
     else:
         print(num)
+
+print("the loop has ended!")
+
+#for i in range(20:0,-2):
+#print(i)
