@@ -1,4 +1,5 @@
 #EH 1st multiplication table
-for i in range(1,15):
-    print((i*i2 for i2 in range(1,15)))
-        
+num1 = int(input("what is the first number that is in the multiplication table\n"))
+num2 = int(input("what is the last number that is in the multiplication table\n"))
+for i in range(num1,num2+1):
+    print([i*i2 for i2 in range(num1,num2+1)])
