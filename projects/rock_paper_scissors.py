@@ -4,6 +4,7 @@ while True:
     rps = ["rock", "paper", "scissors"]
 
     print(" I challenge you to rock paper scissors! choose your attack!")
+    print("or just type in stop to stop the match!")
 
     user = input("type your attack below:\n ")
 
@@ -27,6 +28,9 @@ while True:
             print(f"You picked {user} and your opponent picked {rand_choice} you lost!")
         elif rand_choice == "scissors" and user == "scissors":
             print(f"You picked {user} and your opponent picked {rand_choice} you tie!")
+        elif user == "stop": 
+            print("alrighty exiting the program")
+            False
     else:
         print("invalid input my guy!")
 
