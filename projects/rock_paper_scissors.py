@@ -1,7 +1,7 @@
 #EH 1st rock paper scissors
 import random
 while True:
-    rps = ["rock", "paper", "scissors", "stop"]
+    rps = ["rock", "paper", "scissors"]
 
     print(" I challenge you to rock paper scissors! choose your attack!")
     print("or just type in stop to stop the match!")
