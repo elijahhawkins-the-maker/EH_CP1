@@ -1,0 +1,5 @@
+EH 1st tic tac toe pseudocode
+
+import random
+
+declare a list and make 3 more lists inside of the list that have each of the positions in the code 
