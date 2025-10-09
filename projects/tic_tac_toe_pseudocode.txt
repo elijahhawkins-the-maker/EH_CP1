@@ -1,0 +1,27 @@
+EH 1st tic tac toe pseudocode
+
+import random
+
+declare a list and make 2 more lists inside of the list that have each of the positions of the x's and o's in the tic tac toe grid
+
+write a while True loop and have all of the code inside of the loop so that it will run continuously
+
+then have one input between 1 and 9 that will tell which position to go in or have where they can type in a word to exit the code
+the positions will be, 1 = top left, 2 = top middle = 3 = top right, and so on from there
+
+then have an if statement that will trigger if the input is in the list
+
+then have a another if statement inside of the if statement above that will trigger if the input = 1
+then inside of this if statement you will have where it will print the x inside of that specific square
+then you will have where the computer will pick a random choice between the 9 squares except for the square that the user has picked
+then make a display statement that will display the board again with the computer's choice inside of the grid
+
+then you will make 8 more of these else if statements that will do the same thing but in the different squares on the tic tac toe board.
+
+then at the end of the else if statements you will have where if the user input = "exit", it will put a break function that
+will kill the program
+
+then at the end of all those if and else if statements, you will put a display statement that will show the user that it is an invalid input
+if the input matches none of the if statements
+
+then you will then make an if statement saying that if three squares are filled in a row, it will display that the user or computer has won
