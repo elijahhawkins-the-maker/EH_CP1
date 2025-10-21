@@ -1,5 +1,17 @@
 #EH 1st funcs notes
-
+#set variables
+player_health = 100
+monster_health = 100
+#define functions
+def damage(amount, turn):
+    if turn == "player":
+        return monster_health - amount, player_health
+    else:
+        return monster_health, player_health - amount
+    
+monster_health, player_health = damage(10, "player")
+print(monster_health)
+print(player_health)
 def add(x,y):
     return x+y
 
@@ -20,3 +32,6 @@ def initials(name):
         initials += name[0]
 
     return initials
+
+print(f"a = {ord("a")}")
+print(f"98 = {chr(98)}")
