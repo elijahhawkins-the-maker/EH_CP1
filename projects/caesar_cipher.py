@@ -37,7 +37,7 @@ while True:
                 ushift = int(input("What would you like to shift by?\n"))
                 #break statement that ends the while loop
                 break
-            #except statement that displays the print statement to the user only if the string cannot be converted to an int (yay try and accept are cool!)
+            #except statement that displays the print statement to the user only if the string cannot be converted to an int (yay try and except are cool!)
             except ValueError:
                 print("must enter number without a decimal and no entering letters")
         #this line of code is using the function "encode" again to print the encoded text to the user
