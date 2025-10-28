@@ -32,6 +32,3 @@ def initials(name):
         initials += name[0]
 
     return initials
-
-print(f"a = {ord("a")}")
-print(f"98 = {chr(98)}")
