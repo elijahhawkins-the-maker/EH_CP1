@@ -1,7 +1,7 @@
 #EH 1st turtle racing!
 import random
 import turtle as t
-
+bruh = t.setup(700,700)
 x_cord = 500
 one = t.Turtle()
 two = t.Turtle()
@@ -61,7 +61,6 @@ line.penup()
 
 for x in range(1,100):
     one.forward(random.randint(10,100))
-    x1 = one.xcor()
     two.forward(random.randint(10,100))
     x2 = two.xcor()
     three.forward(random.randint(10,100))
@@ -71,8 +70,9 @@ for x in range(1,100):
     five.forward(random.randint(10,100))
     x5 = five.xcor()
     continue
-if one.xcor(1) >= x_cord:
-    print("The red turtle won!")
 t.end_fill()
-
-t.done()
+while True:
+    x1 = one.xcor()
+    if x1 > x_cord:
+        print("The red turtle has won")
+        break
