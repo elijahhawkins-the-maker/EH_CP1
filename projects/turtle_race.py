@@ -1,58 +1,62 @@
 #EH 1st turtle racing!
+#import random at the top of the code
 import random
+#import turtle and import it as t to make it easier to type in the functions
 import turtle as t
-x_cord = 500
+#have the t.setup function to set the size of the screen to 1500*1000 pixels
 t.setup(1500,1000)
+#this makes the background color black to mak it look much cooler
 t.bgcolor("black")
+#this is assigning the turtles to the one-five variables
 one = t.Turtle()
 two = t.Turtle()
 three = t.Turtle()
 four = t.Turtle()
 five = t.Turtle()
-
+#this is the penup function that makes it so that the turtles don't draw while traveling
 t.begin_fill()
 one.penup()
 two.penup()
 three.penup()
 four.penup()
 five.penup()
-
+#this is the function that makes the turtles go to their starting positions
 one.goto(-500,250)
 two.goto(-500,125)
 three.goto(-500,0)
 four.goto(-500,-125)
 five.goto(-500,-250)
-
+#after the turtles go to their positions, this function makes it so that the turtles will start drawing again
 one.pendown()
 two.pendown()
 three.pendown()
 four.pendown()
 five.pendown()
-
+#this function makes it so that the turtles go 3000 mph at first
 one.speed(3000)
 two.speed(3000)
 three.speed(3000)
 four.speed(3000)
 five.speed(3000)
-
+#this then makes the speed a random speed after the turtles have first started
 one.speed(random.randint(1,5))
 two.speed(random.randint(1,5))
 three.speed(random.randint(1,5))
 four.speed(random.randint(1,5))
 five.speed(random.randint(1,5))
-
+#this just makes the original pointers the shape of a turtle!
 one.shape("turtle")
 two.shape("turtle")
 three.shape("turtle")
 four.shape("turtle")
 five.shape("turtle")
-
+#this function makes the color of the turtles different then black!
 one.color("red")
 two.color("green")
 three.color("blue")
 four.color("purple")
 five.color("yellow")
-
+#these sets of functions draw the line for the turtles to have to cross
 line = t.Turtle()
 line.color("white")
 line.penup()
@@ -61,7 +65,7 @@ line.pendown()
 line.goto(500,-500)
 line.penup()
 line.hideturtle()
-
+#this is a for loop that will make the turtles move continuously
 for x in range(1,10000):
     one.forward(random.randint(10,100))
     x1 = one.xcor()
