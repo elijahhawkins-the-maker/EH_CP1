@@ -20,13 +20,19 @@ two.penup()
 three.penup()
 four.penup()
 five.penup()
+#this function makes it so that the turtles go 3000 mph at first to get to their starting positions faster
+one.speed(5000)
+two.speed(5000)
+three.speed(5000)
+four.speed(5000)
+five.speed(5000)
 #this is the function that makes the turtles go to their starting positions
 def position():
-    one.goto(-750,250)
-    two.goto(-750,125)
-    three.goto(-750,0)
-    four.goto(-750,-125)
-    five.goto(-750,-250)
+    one.goto(-725,250)
+    two.goto(-725,125)
+    three.goto(-725,0)
+    four.goto(-725,-125)
+    five.goto(-725,-250)
 position()
 #after the turtles go to their positions, this function makes it so that the turtles will start drawing again
 one.pendown()
@@ -34,12 +40,6 @@ two.pendown()
 three.pendown()
 four.pendown()
 five.pendown()
-#this function makes it so that the turtles go 3000 mph at first
-one.speed(3000)
-two.speed(3000)
-three.speed(3000)
-four.speed(3000)
-five.speed(3000)
 #this then makes the speed a random speed after the turtles have first started
 def fast():
     one.speed(random.randint(1,5))
@@ -54,6 +54,12 @@ two.shape("turtle")
 three.shape("turtle")
 four.shape("turtle")
 five.shape("turtle")
+#this makes the size of the turtles bigger
+one.shapesize(2)
+two.shapesize(2)
+three.shapesize(2)
+four.shapesize(2)
+five.shapesize(2)
 #this function makes the color of the turtles different then black!
 one.color("red")
 two.color("green")
@@ -138,5 +144,7 @@ def moving():
             yellow.hideturtle()
             break
 moving()
+#this is to end the turtles drawing lines
 t.end_fill()
+#this makes the window for the turtles stay open even after running the code
 t.done()
