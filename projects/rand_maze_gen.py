@@ -1,37 +1,40 @@
 #EH 1st random maze generator
-import random
+import random as r
 import turtle as t
 t.screensize(500,500)
 t.bgcolor("black")
 
-massive = []
-
-line_maker = t.Turtle()
+WIDTH = 8  # Must be odd for walls to work well
+HEIGHT = 8 # Must be odd
+CELL_SIZE = 7
+maze = [[1 for _ in range(WIDTH)] for _ in range(HEIGHT)]
+linemaker = t.Turtle()
 t.begin_fill()
-line_maker.speed(5000)
-line_maker.shape("turtle")
-line_maker.color("red")
-line_maker.penup()
-line_maker.goto(400,400)
-line_maker.pendown()
-line_maker.goto(10,400)
-line_maker.penup()
-line_maker.goto(-10,400)
-line_maker.pendown()
-line_maker.goto(-400,400)
-line_maker.goto(-400,-400)
-line_maker.goto(-10,-400)
-line_maker.penup()
-line_maker.goto(10,-400)
-line_maker.pendown()
-line_maker.goto(400,-400)
-line_maker.goto(400,400)
-
-for x in range(1,20):
-    line_maker.penup()
-    line_maker.goto(400,400)
-t.done()
-
+linemaker.speed(5000)
+linemaker.shape("turtle")
+linemaker.color("red")
+linemaker.penup()
+linemaker.goto(400,400)
+linemaker.pendown()
+linemaker.goto(10,400)
+linemaker.penup()
+linemaker.goto(-10,400)
+linemaker.pendown()
+linemaker.goto(-400,400)
+linemaker.goto(-400,-400)
+linemaker.goto(-10,-400)
+linemaker.penup()
+linemaker.goto(10,-400)
+linemaker.pendown()
+linemaker.goto(400,-400)
+linemaker.goto(400,400)
+linemaker.left(90)
+linemaker.left(90)
+for i in range(1,8):
+    linemaker.forward(60)
+    linemaker.left(90)
+    linemaker.forward(400)
+    break
 def solvable(row_grid, col_grid):
     size = len(row_grid) - 1
     visited = set()
@@ -54,3 +57,4 @@ def solvable(row_grid, col_grid):
         if y > 0 and row_grid[y][x] == 0:
             stack.append((x, y-1))
     return False
+t.done()
