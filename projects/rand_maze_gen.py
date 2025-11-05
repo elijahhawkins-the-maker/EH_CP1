@@ -3,10 +3,16 @@ import random as r
 import turtle as t
 t.screensize(500,500)
 t.bgcolor("black")
-
-
-linemaker = t.Turtle()
 t.begin_fill()
+columns = [1,2,3,4,5,6,7,8,9,10,11,12]
+rows = [1,2,3,4,5,6,7,8,9,10,11,12]
+maze_size = 12
+columns2 = 12
+rows2 = 12
+wall = 1
+path = 0
+maze = [[wall for i in range(maze_size)] for i in range(maze_size)]
+linemaker = t.Turtle()
 linemaker.speed(5000)
 linemaker.shape("turtle")
 linemaker.color("red")
@@ -27,29 +33,13 @@ linemaker.goto(400,-400)
 linemaker.goto(400,400)
 linemaker.left(90)
 linemaker.left(90)
-for i in range(1,7):
-    linemaker.forward(66.6)
-    linemaker.left(90)
-    linemaker.forward(800)
-    linemaker.right(90)
-    linemaker.forward(66.6)
-    linemaker.right(90)
-    linemaker.forward(800)
-    linemaker.left(90)
-    if linemaker.xcor() > -400 and linemaker.xcor() < -399:
-        for i in range(1,6):
+for y in range(maze_size):
+    for x in range(maze_size):
+        if maze[y][x] == wall:
             linemaker.left(90)
             linemaker.forward(66.6)
-            linemaker.left(90)
-            linemaker.forward(800)
             linemaker.right(90)
-            linemaker.forward(66.6)
-            linemaker.right(90)
-            linemaker.forward(800)
-        linemaker.left(90)
-        linemaker.forward(66.6)
-        linemaker.left(90)
-        linemaker.forward(800)
+
 
 def solvable(row_grid, col_grid):
     size = len(row_grid) - 1
@@ -73,27 +63,9 @@ def solvable(row_grid, col_grid):
         if y > 0 and row_grid[y][x] == 0:
             stack.append((x, y-1))
     return False
-columns = []
 def random():
     gen = t.Turtle()
-    gen.pensize(5)
-    gen.color("black")
-    gen.speed(5000)
-    gen.goto(-66.6,400)
-    for i in range(1,10000):
-        gen.forward(r.randint(1, 66))
-        gen.left(90)
-        gen.forward(r.randint(1,66))
-        gen.right(90)
-        gen.forward(r.randint(1,66))
-        if gen.ycor() >= 350 or gen.ycor() <= -350:
-            gen.penup()
-            gen.goto(r.randint(0,250),r.randint(0,250))
-            gen.pendown()
-        if gen.xcor() >= 350 or gen.xcor() <= -350:
-            gen.penup()
-            gen.goto(r.randint(0,250),r.randint(0,250))
-            gen.pendown()
+
 random()
 
 t.done()
