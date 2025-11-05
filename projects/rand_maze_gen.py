@@ -4,10 +4,7 @@ import turtle as t
 t.screensize(500,500)
 t.bgcolor("black")
 
-WIDTH = 8  # Must be odd for walls to work well
-HEIGHT = 8 # Must be odd
-CELL_SIZE = 7
-maze = [[1 for _ in range(WIDTH)] for _ in range(HEIGHT)]
+
 linemaker = t.Turtle()
 t.begin_fill()
 linemaker.speed(5000)
@@ -16,25 +13,44 @@ linemaker.color("red")
 linemaker.penup()
 linemaker.goto(400,400)
 linemaker.pendown()
-linemaker.goto(10,400)
+linemaker.goto(66.6,400)
 linemaker.penup()
-linemaker.goto(-10,400)
+linemaker.goto(0,400)
 linemaker.pendown()
 linemaker.goto(-400,400)
 linemaker.goto(-400,-400)
-linemaker.goto(-10,-400)
+linemaker.goto(-66.6,-400)
 linemaker.penup()
-linemaker.goto(10,-400)
+linemaker.goto(0,-400)
 linemaker.pendown()
 linemaker.goto(400,-400)
 linemaker.goto(400,400)
 linemaker.left(90)
 linemaker.left(90)
-for i in range(1,8):
-    linemaker.forward(60)
+for i in range(1,7):
+    linemaker.forward(66.6)
     linemaker.left(90)
-    linemaker.forward(400)
-    break
+    linemaker.forward(800)
+    linemaker.right(90)
+    linemaker.forward(66.6)
+    linemaker.right(90)
+    linemaker.forward(800)
+    linemaker.left(90)
+    if linemaker.xcor() > -400 and linemaker.xcor() < -399:
+        for i in range(1,6):
+            linemaker.left(90)
+            linemaker.forward(66.6)
+            linemaker.left(90)
+            linemaker.forward(800)
+            linemaker.right(90)
+            linemaker.forward(66.6)
+            linemaker.right(90)
+            linemaker.forward(800)
+        linemaker.left(90)
+        linemaker.forward(66.6)
+        linemaker.left(90)
+        linemaker.forward(800)
+
 def solvable(row_grid, col_grid):
     size = len(row_grid) - 1
     visited = set()
@@ -57,4 +73,27 @@ def solvable(row_grid, col_grid):
         if y > 0 and row_grid[y][x] == 0:
             stack.append((x, y-1))
     return False
+columns = []
+def random():
+    gen = t.Turtle()
+    gen.pensize(5)
+    gen.color("black")
+    gen.speed(5000)
+    gen.goto(-66.6,400)
+    for i in range(1,10000):
+        gen.forward(r.randint(1, 66))
+        gen.left(90)
+        gen.forward(r.randint(1,66))
+        gen.right(90)
+        gen.forward(r.randint(1,66))
+        if gen.ycor() >= 350 or gen.ycor() <= -350:
+            gen.penup()
+            gen.goto(r.randint(0,250),r.randint(0,250))
+            gen.pendown()
+        if gen.xcor() >= 350 or gen.xcor() <= -350:
+            gen.penup()
+            gen.goto(r.randint(0,250),r.randint(0,250))
+            gen.pendown()
+random()
+
 t.done()

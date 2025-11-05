@@ -1,6 +1,5 @@
 import turtle
 import random
-import time
 
 # --- Maze Configuration ---
 MAZE_SIZE = 21 # Must be an odd number to work correctly with the algorithm
