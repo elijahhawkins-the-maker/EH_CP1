@@ -1,9 +1,11 @@
 #EH 1st random maze generator
 import random as r
 import turtle as t
+import time as ti
 t.screensize(500,500)
 t.bgcolor("black")
 t.begin_fill()
+screen = t.Screen()
 columns = [1,2,3,4,5,6,7,8,9,10,11,12]
 rows = [1,2,3,4,5,6,7,8,9,10,11,12]
 maze_size = 12
@@ -13,7 +15,7 @@ wall = 1
 path = 0
 maze = [[wall for i in range(maze_size)] for i in range(maze_size)]
 linemaker = t.Turtle()
-linemaker.speed(5000)
+linemaker.speed(10)
 linemaker.shape("turtle")
 linemaker.color("red")
 linemaker.penup()
@@ -31,16 +33,24 @@ linemaker.goto(0,-400)
 linemaker.pendown()
 linemaker.goto(400,-400)
 linemaker.goto(400,400)
-linemaker.left(90)
-linemaker.left(90)
+
 for y in range(maze_size):
     for x in range(maze_size):
         if maze[y][x] == wall:
-            linemaker.left(90)
-            linemaker.forward(66.6)
-            linemaker.right(90)
-
-
+            row = r.randint(0,1)
+            column = r.randint(0,1)
+            linemaker.teleport(-400, -333.4)
+            linemaker.forward(800)
+            if row == 1:
+                linemaker.penup()
+                break
+            elif row == 0:
+                linemaker.pendown()
+                break
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+linemaker.forward(800)
 def solvable(row_grid, col_grid):
     size = len(row_grid) - 1
     visited = set()
