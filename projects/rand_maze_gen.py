@@ -33,24 +33,345 @@ linemaker.goto(0,-400)
 linemaker.pendown()
 linemaker.goto(400,-400)
 linemaker.goto(400,400)
+linemaker.teleport(-400,-333.4)
 
-for y in range(maze_size):
-    for x in range(maze_size):
-        if maze[y][x] == wall:
-            row = r.randint(0,1)
-            column = r.randint(0,1)
-            linemaker.teleport(-400, -333.4)
-            linemaker.forward(800)
-            if row == 1:
-                linemaker.penup()
-                break
-            elif row == 0:
-                linemaker.pendown()
-                break
+gridrow = [
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
+
+gridcol = [
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)],
+        [r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1),r.randint(0,1)]]
+
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[0][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[0][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
 linemaker.left(90)
 linemaker.forward(66.6)
 linemaker.left(90)
-linemaker.forward(800)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[1][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[1][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[2][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[2][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[3][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[3][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[4][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[4][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[5][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[5][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[6][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[6][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[7][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[7][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[8][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[8][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[9][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[9][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridrow[10][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridrow[10][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+linemaker.teleport(-400,400)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[0][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[0][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[1][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[1][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[2][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[2][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[3][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[3][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[4][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[4][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[5][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[5][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[6][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[6][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[7][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[7][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[8][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[8][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[9][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[9][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.right(90)
+linemaker.forward(66.6)
+linemaker.right(90)
+bruh = 0
+while True:
+        if bruh == 12:
+            break
+        if gridcol[10][bruh] == wall:
+            linemaker.pendown()
+            linemaker.forward(66.6)
+        if gridcol[10][bruh] == path:
+            linemaker.penup()
+            linemaker.forward(66.6)
+        bruh += 1
+linemaker.left(90)
+linemaker.forward(66.6)
+linemaker.left(90)
 def solvable(row_grid, col_grid):
     size = len(row_grid) - 1
     visited = set()
