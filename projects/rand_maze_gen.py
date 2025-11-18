@@ -440,3 +440,4 @@ else:
     print("the maze isn't solvable")
 #keeps the window open
 t.done()
+#bruh
