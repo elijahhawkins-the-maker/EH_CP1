@@ -9,6 +9,6 @@ while True:
 
     nums *= 2
 
-    print(nums)
+    print(f"\033[92m{nums}\033[0m")
 
     clock.sleep(0.006)
