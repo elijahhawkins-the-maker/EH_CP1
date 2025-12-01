@@ -48,4 +48,4 @@ while True:
                 print(f"{i}")
             break
 #prints the final answer
-    print(f"The factorial is {bruh}")
+    print(f"\033[91mThe factorial is {bruh}\033[0m")
