@@ -60,3 +60,37 @@
 #boss function:
     #will be like combat function but being more hard like stronger attacks and more spells being casted
     #health will be taken down 1.50x as much because the Dragon King is stronger!
+"""----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+#Weapons!
+    #variable for damage will be set to 0
+    #the variable will have a number added to it once the user chooses their weapon
+    #conditionals for the choosing of the weapons
+    #here is a list of the starter weapons:
+        #Great axe: 1D12 damage (will be determined through a random integer for the dice)
+        #Javelin: 1D8 damage
+        #Long sword: 1D10 damage
+        #Great sword: 1D12 damage
+        #sledge hammer: 1D20 damage, but very slow
+    #Rare and rarer weapons:
+        #Piece of cloth 2D20
+        #Poison potion: 1D12, can be thrown from afar
+        #thats it with rares weapons for now
+    #Secret weapons:
+        #Wand of Wander
+        #Thats it for now
+"""--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+#Spells!
+    #a second variable for the spell damage that will have no value until the user chooses a spell
+    #an input for the spell choosing
+    #a list of spells
+    #here is the list:
+        #Potion of freezing: 1D8 damage (will only be available in Frostpeaks), rare
+        #Zap of electricity: 1D12 damage, exotic
+        #Stinking cloud: 1D6 damage, secret
+        #Fireball: 1D10 damage, uncommon
+        #That's all for now
+"""--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+#Cities (functions):
+    #defining all of the cities as functions
+        #defining the city Belville:
+            #
