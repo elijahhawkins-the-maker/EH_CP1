@@ -33,8 +33,16 @@
     #another user input that asks if they want to roll their stats again
     #value + 1 to make it so that the while loop can execute one more time
     #once value reaches 2, the loop breaks with a break statement
-    #input for what town they want to visit first
-    #conditionals for what town they choose
+"""-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+#how you start the game and how it runs!
+    #there will be an input where you will choose the town after you roll for stats
+    #a print statement with the difficulty of the town (will be numbered from 1 to 10)
+    #a list with the functions of the cities
+    #then there will be a set of conditionals that will check if the city of your choosing is in the list
+    #an input that says "are you sure you want to go there" if the difficulty is over 5
+    #more conditionals for whether the user says yes or no
+    #once the town is chosen, the function for that town will execute
+    #once you reach the end of the town, there will be another input for choosing the town you want to go to again with the same set of conditions
 """-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
 #functions time!
 #there will be a function for each town, having slight stat changes over each like 
@@ -170,3 +178,11 @@
     #weapons that the boss has will be randomly chosen from a list
     #if you die here, no checkpoint. You get sent all the way back to the beginning of the game. If you didn't come prepared, get cooked.
 """-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+#How it ends after you go through all of the towns:
+    #you fight the boss at the end of the game, in the capital
+    #the edited and more buffed combat function for the boss gets executed
+    #if you lose against the boss, you get sent all the way back to the beginning of the game most likely through the re-execution of a city function or the while loop that the whole code is in
+    #while loop will be while dead is false
+    #if dead equals to true, you go to the beginning of the current town that you are in
+    #once you beat the boss, there is a massive dialogue
+    #then after that, there is an input that asks if you want to play the game again, then it re-executes the entire while loop from the beginning
