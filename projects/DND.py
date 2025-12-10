@@ -8,17 +8,18 @@ def typing(text, delay=0.03):
         s.stdout.flush()
         t.sleep(delay)
     print()
-D100 = r.randint(1,100)
-D20 = r.randint(1,20)
-D12 = r.randint(1,12)
-D10 = r.randint(1,10)
-D6 = r.randint(1,6)
-D4 = r.randint(1,4)
-D2 = r.randint(1,2)
+def roll(sides):
+    return r.randint(1, sides)
 p_damage = 0
 m_damage = 0
 
-start_weapons = ["great axe", "dagger", "scimitar", "javelin", "small dinky hammer"]
+start_weapons = {
+"great axe":12,
+"dagger":8,
+"scimitar":10,
+ "javelin":6, 
+ "small dinky hammer":12
+ }
 typing("lore goes here...")
 t.sleep(1.5)
 typing("Welcome to the country of Draeburg, adventurer")
@@ -54,10 +55,22 @@ while value2 <= 1:
         elif "n":
             break
         else:
-            print("not a valid input")
+            typing("not a valid input")
+t.sleep(1.5)
+typing("Now, here is the list of starter weapons, you can collect more as you go through the towns!")
+t.sleep(1)
+for key in start_weapons.keys():
+    typing(key)
+while True:
+    s_weapon = input("Which of these weapons would you like?\n").lower()
+    if s_weapon in start_weapons:
+        value3 = start_weapons[s_weapon]
+        typing(f"You have chosen {s_weapon}! nice!\n it does 1D{value3} damage!")
+        break
+    else:
+        typing("Not an actual weapon")
 t.sleep(1.5)
 typing("Here is the list of towns you can go to!\n Belville\n Oxhall\n Coldham\n Madland\n Angousir\n Rockshield\n Spiritport\n Whitrock\n Frostpeaks\n or the capital, Drappes")
 t.sleep(1.5)
 choice = int(input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n"))
-
 """---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
