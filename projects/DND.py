@@ -2,14 +2,46 @@
 import random as r
 import time as t
 import sys as s
+
 def typing(text, delay=0.03):
     for char in text:
         s.stdout.write(char)
         s.stdout.flush()
         t.sleep(delay)
+
     print()
 def roll(sides):
     return r.randint(1, sides)
+
+inventory = {}
+def show_inventory():
+    print("These are your items!")
+    for item in inventory.keys():
+        typing(item)
+
+def shop():
+    shop_list = {"item_example": 10}
+    typing("You take a look to see what they have...")
+    for x in shop_list.keys():
+        typing(x)
+    buy = input("What item would you like to buy?\nor type n to not buy anything\n")
+    if buy in shop_list:
+        bought_item = shop_list[buy]
+        typing(f"You have bought {buy}!")
+        inventory[buy] = shop_list[buy]
+    elif buy == "n":
+        pass
+    else:
+        typing("Not an item")
+
+
+def belville():
+    typing("After a long trek, you finally make your way to Belville, a once normal looking town has turned to something... deserted and destroyed.")
+    t.sleep(0.5)
+    typing("You hear someone come up behind, you get scared, thinking of the worst, when you turn around...")
+    t.sleep(1.5)
+    typing("It's just a dealer, but he seems to have something good in his wagon...")
+    shop()
 p_damage = 0
 m_damage = 0
 
@@ -66,11 +98,14 @@ while True:
     if s_weapon in start_weapons:
         value3 = start_weapons[s_weapon]
         typing(f"You have chosen {s_weapon}! nice!\n it does 1D{value3} damage!")
+        inventory[s_weapon] = value3
         break
     else:
         typing("Not an actual weapon")
 t.sleep(1.5)
 typing("Here is the list of towns you can go to!\n Belville\n Oxhall\n Coldham\n Madland\n Angousir\n Rockshield\n Spiritport\n Whitrock\n Frostpeaks\n or the capital, Drappes")
 t.sleep(1.5)
-choice = int(input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n"))
+choice = input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n")
+if choice == "Belville":
+    belville()
 """---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
