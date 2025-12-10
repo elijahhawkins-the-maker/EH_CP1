@@ -34,7 +34,11 @@ def shop():
     else:
         typing("Not an item")
 
-
+def combat():
+    typing("Now you are fighting your opponent")
+    damage = value3
+    m_health = 20
+    atk = input("What would you like to do?\n Use a heal potion\n or attack?").lower()
 def belville():
     typing("After a long trek, you finally make your way to Belville, a once normal looking town has turned to something... deserted and destroyed.")
     t.sleep(0.5)
@@ -42,6 +46,10 @@ def belville():
     t.sleep(1.5)
     typing("It's just a dealer, but he seems to have something good in his wagon...")
     shop()
+    t.sleep(1.5)
+    typing("Whether you bought something or not, you go to explore the rest of Belville!")
+    act_choice = input("What do you want to do?\n1 for going into an abandoned house\n2 for ")
+
 p_damage = 0
 m_damage = 0
 
@@ -49,9 +57,10 @@ start_weapons = {
 "great axe":12,
 "dagger":8,
 "scimitar":10,
- "javelin":6, 
- "small dinky hammer":12
- }
+"javelin":6, 
+"small dinky hammer":12,
+"long sword":10
+}
 typing("lore goes here...")
 t.sleep(1.5)
 typing("Welcome to the country of Draeburg, adventurer")
@@ -105,7 +114,11 @@ while True:
 t.sleep(1.5)
 typing("Here is the list of towns you can go to!\n Belville\n Oxhall\n Coldham\n Madland\n Angousir\n Rockshield\n Spiritport\n Whitrock\n Frostpeaks\n or the capital, Drappes")
 t.sleep(1.5)
-choice = input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n")
-if choice == "Belville":
-    belville()
+while True:
+    choice = input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n")
+    if choice == "Belville":
+        belville()
+        break
+    else:
+        typing("Not a town on the msp it seems...")
 """---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
