@@ -27,7 +27,6 @@ def shop():
     buy = input("What item would you like to buy?\nor type n to not buy anything\n")
     if buy in shop_list:
         bought_item = shop_list[buy]
-        
         typing(f"You have bought {buy}!")
         inventory[buy] = shop_list[buy]
     elif buy == "n":
@@ -35,17 +34,38 @@ def shop():
     else:
         typing("Not an item")
 
-def combat():
+def combat(m_health, m_damage):
     typing("Now you are fighting your opponent")
     damage = value3
-    m_health = 50
-    atk = input("What would you like to do?\n Use a heal potion\n or attack?").lower()
-    if atk == "attack":
-        show_inventory()
-        hit = input("Alrighty, what would you like to use in your inventory to attack?")
-        if hit in inventory and start_weapons or rare_weapons or exotic_weapons or secret_weapons or spells:
-            typing(f"You chose to use {hit}!")
-
+    while True:
+        atk = input("What would you like to do?\n Use a heal potion\n or attack?").lower()
+        if atk == "attack":
+            show_inventory()
+            hit = input("Alrighty, what would you like to use in your inventory to attack?")
+            if hit in inventory and start_weapons or rare_weapons or exotic_weapons or secret_weapons or spells:
+                user = inventory[hit]
+                typing(f"You chose to use {hit}!")
+                typing(f"You did {user} damage!")
+                m_health -= user
+        elif atk == "heal potion":
+            if "heal potion" in inventory:
+                typing(f"You healed 80% of your health! Also potentially gained some!")
+                health *= 1.80
+        else:
+            typing("You can't fight with that!")
+        typing("Now it is the opponent's turn!")
+        m_hit = roll(20)
+        if m_hit >= ac:
+            typing(f"You took {m_hit} damage!")
+            health -= m_hit
+        else:
+            typing("Your opponent did not hit!")
+        if health <= 0:
+            typing("You died!")
+            break
+        if m_health <= 0:
+            typing("You won against your opponent!")
+            break
 def belville():
     typing("After a long trek, you finally make your way to Belville, a once normal looking town has turned to something... deserted and destroyed.")
     t.sleep(0.5)
@@ -55,6 +75,7 @@ def belville():
     shop()
     t.sleep(1.5)
     typing("Whether you bought something or not, you go to explore the rest of Belville!")
+    combat(30,r.randint(1,15))
     act_choice = input("What do you want to do?\n1 for going into an abandoned house\n2 for ")
 
 p_damage = 0
