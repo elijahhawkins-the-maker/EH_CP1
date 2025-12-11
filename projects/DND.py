@@ -27,6 +27,7 @@ def shop():
     buy = input("What item would you like to buy?\nor type n to not buy anything\n")
     if buy in shop_list:
         bought_item = shop_list[buy]
+        
         typing(f"You have bought {buy}!")
         inventory[buy] = shop_list[buy]
     elif buy == "n":
@@ -37,8 +38,14 @@ def shop():
 def combat():
     typing("Now you are fighting your opponent")
     damage = value3
-    m_health = 20
+    m_health = 50
     atk = input("What would you like to do?\n Use a heal potion\n or attack?").lower()
+    if atk == "attack":
+        show_inventory()
+        hit = input("Alrighty, what would you like to use in your inventory to attack?")
+        if hit in inventory and start_weapons or rare_weapons or exotic_weapons or secret_weapons or spells:
+            typing(f"You chose to use {hit}!")
+
 def belville():
     typing("After a long trek, you finally make your way to Belville, a once normal looking town has turned to something... deserted and destroyed.")
     t.sleep(0.5)
@@ -60,6 +67,41 @@ start_weapons = {
 "javelin":6, 
 "small dinky hammer":12,
 "long sword":10
+}
+rare_weapons = {
+"long sword":15,
+"pickaxe":12,
+"musket":10,
+"lightning bolt":15,
+}
+exotic_weapons = {
+"random cloth":20,
+"big dinky hammer":14,
+"signature sledge":20,
+"plastic knife":16,
+"get outa here":25
+}
+secret_weapons = {
+"soda cup":30,
+"wand of wander":100,
+"555 dc motor":50,
+"whip of the century":25,
+"mega knight":80,
+"Ms LaRose":200
+}
+spells = {
+"freeze":10,
+"fire":15,
+"earthquake":20,
+"levitation":12,
+"thin air":13,
+"tornado":20,
+"drown":17,
+"electrocution":18,
+"riches":10,
+"insanity":8,
+"rage attack":9,
+"wind":12
 }
 typing("lore goes here...")
 t.sleep(1.5)
@@ -120,5 +162,5 @@ while True:
         belville()
         break
     else:
-        typing("Not a town on the msp it seems...")
+        typing("Not a town on the map it seems...")
 """---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
