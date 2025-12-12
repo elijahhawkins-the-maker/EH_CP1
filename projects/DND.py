@@ -10,8 +10,6 @@ def typing(text, delay=0.03):
         t.sleep(delay)
 
     print()
-def roll(sides):
-    return r.randint(1, sides)
 
 inventory = {}
 def show_inventory():
@@ -19,22 +17,7 @@ def show_inventory():
     for item in inventory.keys():
         typing(item)
 
-def shop():
-    shop_list = {"item_example": 10}
-    typing("You take a look to see what they have...")
-    for x in shop_list.keys():
-        typing(x)
-    buy = input("What item would you like to buy?\nor type n to not buy anything\n")
-    if buy in shop_list:
-        bought_item = shop_list[buy]
-        typing(f"You have bought {buy}!")
-        inventory[buy] = shop_list[buy]
-    elif buy == "n":
-        pass
-    else:
-        typing("Not an item")
-
-def combat(m_health, m_damage):
+def combat(m_health, m_damage, health):
     typing("Now you are fighting your opponent")
     damage = value3
     while True:
@@ -50,14 +33,18 @@ def combat(m_health, m_damage):
         elif atk == "heal potion":
             if "heal potion" in inventory:
                 typing(f"You healed 80% of your health! Also potentially gained some!")
+            else:
+                typing("You don't have a healing potion")
                 health *= 1.80
         else:
             typing("You can't fight with that!")
         typing("Now it is the opponent's turn!")
-        m_hit = roll(20)
-        if m_hit >= ac:
+        mon_attempt = r.randint(1,20)
+        m_hit = r.randint(1,10)
+        if mon_attempt >= ac:
             typing(f"You took {m_hit} damage!")
             health -= m_hit
+            typing(f"Your health is now {health}")
         else:
             typing("Your opponent did not hit!")
         if health <= 0:
@@ -75,7 +62,7 @@ def belville():
     shop()
     t.sleep(1.5)
     typing("Whether you bought something or not, you go to explore the rest of Belville!")
-    combat(30,r.randint(1,15))
+    combat(30,r.randint(1,15), 25)
     act_choice = input("What do you want to do?\n1 for going into an abandoned house\n2 for ")
 
 p_damage = 0
@@ -124,6 +111,24 @@ spells = {
 "rage attack":9,
 "wind":12
 }
+
+starter_weapons = list(start_weapons.keys())
+rarer_weapons = list(rare_weapons.keys())
+spellers = list(spells.keys())
+shop_list = [r.choice(starter_weapons), r.choice(spellers), r.choice(rarer_weapons)]
+def shop():
+    typing("You take a look to see what they have...")
+    for x in shop_list:
+        typing(x)
+    buy = int(input("What item would you like to buy? 1 for the first item, etc\nor type n to not buy anything\n"))
+    if buy in shop_list.index():
+        bought_item = shop_list[buy]
+        typing(f"You have bought {buy}!")
+        inventory[buy] = shop_list[buy]
+    elif buy == str:
+        pass
+    else:
+        typing("Not an item")
 typing("lore goes here...")
 t.sleep(1.5)
 typing("Welcome to the country of Draeburg, adventurer")
@@ -134,20 +139,20 @@ typing("You must roll for your stats!")
 t.sleep(1.5)
 value = 0
 value2 = 0
+health = 0
 while value < 4:
     typing("rolling...")
     t.sleep(1.3)
     value += 1
 while value2 <= 1:
-    str = r.randint(5,20)
+    strr = r.randint(5,20)
     dex = r.randint(5,20)
     con = r.randint(5,20)
     intt = r.randint(5,20)
     wis = r.randint(5,20)
     cha = r.randint(5,20)
-    health = r.randint(1,20)
-    ac = r.randint(5,20)
-    typing(f"Your stats are...\n strength is {str}\n dexterity is {dex}\n constitution is {con}\n intelligence is {intt}\n wisdom is {wis}\n charisma is {cha}\narmor class is {ac}\n\n")
+    ac = r.randint(5,16)
+    typing(f"Your stats are...\n strength is {strr}\n dexterity is {dex}\n constitution is {con}\n intelligence is {intt}\n wisdom is {wis}\n charisma is {cha}\narmor class is {ac}\n\n")
     if cha <= 15 or dex <= 15 or str <= 15 or con <= 15 or intt <= 15 or wis <= 15:
         re_roll = input("Do you want to roll your stats again, y or n?\n")
         if re_roll == "y":
