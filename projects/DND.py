@@ -26,11 +26,13 @@ def combat(m_health, m_damage, health, gold_given):
         if atk == "attack":
             show_inventory()
             hit = input("Alrighty, what would you like to use in your inventory to attack?\n").lower()
-            if hit in inventory and start_weapons or rare_weapons or exotic_weapons or secret_weapons or spells:
+            if hit in inventory:
                 user = inventory[hit]
                 typing(f"You chose to use {hit}!")
                 typing(f"You did {user} damage!")
                 m_health -= user
+            else:
+                typing("You dont have that! He attacks anyways!")
         elif atk == "heal potion":
             if "heal potion" in inventory:
                 typing(f"You healed 80% of your health! Also potentially gained some!")
@@ -138,7 +140,6 @@ def madland():
                 typing("But still, with inflation these days, what is 1 gold gonna get ya!?")
                 t.sleep(1.5)
                 typing("Hey at least they still appreciate it")
-                break
                 gold -= 1
                 break
             elif gift > 1 and gift <= 10:
@@ -233,6 +234,27 @@ def Angousir():
             typing("Then almost instantly, you hear an ear piercing alarm sound that...")
             t.sleep(1.5)
             typing("Echos throughout the entire town!")
+            t.sleep(1.5)
+            typing("You go into the owner's room to hide, hoping he doesn't see you")
+            t.sleep(1.5)
+            typing("You hear his footsteps slowly get louder and louder...")
+            t.sleep(1.5)
+            typing("The first place he checks is under the bed...")
+            t.sleep(1.5)
+            typing("The second place he looks is in the closet...")
+            t.sleep(1.5)
+            typing("He sees you in his house!")
+            combat(60,r.randint(1,20),40,70)
+        elif a_choice == "shop":
+            typing("You walk into a nice, organized shop...")
+            shop()
+        elif a_choice == "grafetti":
+            typing("You chose to vandalize?")
+            t.sleep(1.5)
+            typing("You're such a little crime commiter")
+            t.sleep(1.5)
+            typing("You walk over to a mansion that looked the nicest out of any other one")
+
 start_weapons = {
 "great axe":12,
 "dagger":8,
@@ -259,7 +281,8 @@ secret_weapons = {
 "555 dc motor":50,
 "whip of the century":25,
 "mega knight":80,
-"Ms LaRose":200
+"Ms LaRose":200,
+"fist":80
 }
 spells = {
 "freeze":10,
