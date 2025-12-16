@@ -685,6 +685,7 @@ madland_complete = False
 rockshield_complete = False
 drappes_complete = False
 while not angousir_complete or not belville_complete or not madland_complete or not rockshield_complete or not drappes_complete:
+    typing("Here is the list of towns you can go to!\n Belville\n Madland\n Angousir\n Rockshield\n or the capital, Drappes")
     choice2 = input("What is the next town that you want to go to?\n")
     if choice2 == "Belville":
         belville()
