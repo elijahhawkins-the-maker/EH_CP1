@@ -16,9 +16,10 @@ def show_inventory():
     print("These are your items!")
     for item in inventory.keys():
         typing(item)
-
+value5 = 0
 def combat(m_health, m_damage, health, gold_given):
     global gold
+    global value5
     typing("Now you are fighting your opponent")
     damage = value3
     while True:
@@ -45,11 +46,10 @@ def combat(m_health, m_damage, health, gold_given):
         else:
             typing("You can't fight with that!")
         typing("Now it is the opponent's turn!")
-        mon_attempt = r.randint(5,20)
-        m_hit = r.randint(1,10)
+        mon_attempt = r.randint(5,25)
         if mon_attempt >= ac:
-            typing(f"You took {m_hit} damage!")
-            health -= m_hit
+            typing(f"You took {m_damage} damage!")
+            health -= m_damage
             typing(f"Your health is now {health}")
         else:
             typing("Your opponent did not hit!")
@@ -63,9 +63,16 @@ def combat(m_health, m_damage, health, gold_given):
         if m_health <= 0:
             typing(f"You won against your opponent! You gain {gold_given} gold!")
             gold += gold_given
+            value5 += 1
             break
-
+value9 = 0
 def belville():
+    global value9
+    if value9 >= 1:
+        typing("Seems you have went through this town!")
+        t.sleep(1.5)
+        typing("Now go to another town to defeat their military general!")
+        return False
     global gold
     typing("After a long trek, you finally make your way to Belville, a once normal looking town has turned to something... deserted and destroyed.")
     t.sleep(0.5)
@@ -101,7 +108,7 @@ def belville():
         t.sleep(1.5)
         typing("That was a close one... But you ended up making it out of the town!")
         t.sleep(1.5)
-        choice2 = input("Now that you have beaten the easiet general out of the rest, it is time that you choose the next town to go to!\n")
+        value9 += 1
     elif act_choice == 2:
         typing("You go into the basketball court, to find an almost fully inflated basketball!")
         t.sleep(1.5)
@@ -115,7 +122,15 @@ def belville():
         t.sleep(1.5)
         typing("But just as you thought you were good, you run into one of the military generals of the Dragon King!")
         combat(30,r.randint(1,10),35,30)
+        value9 += 1
+value6 = 0
 def madland():
+    global value6
+    if value6 >= 1:
+        typing("Seems you have went through this town!")
+        t.sleep(1.5)
+        typing("Now go to another town to defeat their military general!")
+        return False
     global gold
     gold *= 2
     typing("You've traveled long and far to this town, but it looks so different compared to any other places...")
@@ -210,8 +225,142 @@ def madland():
     typing("Whether you beat him or not, you continue to the next town...")
     gold /= 2
     round(gold)
-    t_choice = input("Now which town do you want to go to?")
-def Angousir():
+    value6 += 1
+value8 = 0
+def rockshield():
+    global value8
+    global gold
+    global strr
+    global ac
+    if value8 >= 1:
+        typing("Seems you have went through this town!")
+        t.sleep(1.5)
+        typing("Now go to another town to defeat their military general!")
+        return False
+    typing("You traveled a long way to get to this town...")
+    t.sleep(1.5)
+    typing("Across a long desert land")
+    t.sleep(1.5)
+    typing("But as you look...")
+    t.sleep(1.5)
+    typing("You see green vehicles and artilery in the distance")
+    t.sleep(1.5)
+    typing("That is when you realize...")
+    t.sleep(1.5)
+    typing("You've made it to the military town of Draeburg.")
+    t.sleep(1.5)
+    while True:
+        r_choice = input("Now what would you like to do in this town?\n'shop' for buying somethin\n'train' for doing some military training\n'armor' to go get (may or may not rob) some armor")
+        if r_choice == "shop":
+            typing("You walk into an armory, that is dusty, and hot")
+            t.sleep(1.5)
+            typing("It maybe hot, but it looks like there is something good")
+            shop()
+            break
+        elif r_choice == "train":
+            typing("You walk into a public military try out center")
+            t.sleep(1.5)
+            typing("You see a sergeant, you walk up to him and ask...")
+            t.sleep(1.5)
+            typing("Can I train?")
+            t.sleep(1.5)
+            typing("He says, yeah sure!")
+            t.sleep(1.5)
+            typing("You're surprised that he hasn't noticed who you are yet")
+            t.sleep(1.5)
+            typing("Then as you're walking to the training area...")
+            t.sleep(1.5)
+            typing("He says, 'do I know you from somewhere?'")
+            t.sleep(1.5)
+            typing("You immediately say no")
+            t.sleep(1.5)
+            typing("He says, 'alrighty' then you continue.")
+            t.sleep(1.5)
+            typing("You see yourself in the training room...")
+            t.sleep(1.5)
+            typing("Then the sergeant says to you...")
+            typing("GET DOWN AND GIVE ME 25!")
+            t.sleep(1.5)
+            typing("So you instantly get down and do 25 pushups")
+            t.sleep(1.5)
+            typing("The sergeant says...")
+            t.sleep(1.5)
+            typing("'Wow you were fast with that'")
+            t.sleep(1.5)
+            typing("'Faster than any of my other troops'")
+            t.sleep(1.5)
+            typing("(Because of that you gain 2 strength!)")
+            strr += 5
+            t.sleep(1.5)
+            typing("'But that means you definitely didn't fool me, adventurer'")
+            t.sleep(1.5)
+            typing("'Now in order to finish your little quest'")
+            t.sleep(1.5)
+            typing("'You will have to get through ME!")
+            combat(50,r.randint(1,20),30,47)
+            break
+        elif r_choice == "armor":
+            typing("You walk to a store in the middle of the town...")
+            t.sleep(1.5)
+            typing("Then you see if you can secretly walk out of the store with it!")
+            t.sleep(1.5)
+            typing("So you grab a chest plate, usually worth 45 gold...")
+            t.sleep(1.5)
+            typing("...and right before you make it out of the store...")
+            t.sleep(1.5)
+            typing("You have to roll for stealth!")
+            stealth = r.randint(1,20)
+            while value < 4:
+                typing("Rolling...")
+            if stealth <= 10:
+                typing("You rolled too low!")
+                t.sleep(1.5)
+                typing("The store clerk ends up noticing...")
+                t.sleep(1.5)
+                typing("He immediately comes over")
+                t.sleep(1.5)
+                typing("He whips out his sword")
+                t.sleep(1.5)
+                typing("Next thing you know...")
+                combat(30,r.randint(1,20),30,23)
+                break
+            else:
+                typing(f"You rolled a {stealth}!")
+                t.sleep(1.5)
+                typing("You end up making it out with the chest plate!")
+                t.sleep(1.5)
+                typing("You gain 3 to your armor class!")
+                ac += 3
+                break
+        else:
+            typing("That ain't something you can do!")
+    typing("Whatever you ended up choosing...")
+    t.sleep(1.5)
+    typing("You continue through the town, inching closer to the capital")
+    t.sleep(1.5)
+    typing("You see a huge, strong general with a gun on his belt...")
+    t.sleep(1.5)
+    typing("He comes up to you and says, you only have me before you reach Drappes!")
+    t.sleep(1.5)
+    typing("If you can't beat me...")
+    t.sleep(1.5)
+    typing("Then you will never beat the Dragon King!")
+    combat(100,r.randint(1,30),66,100)
+    typing("You think, wow that battle was hard...")
+    t.sleep(1.5)
+    typing("Now you must venture to the next town")
+    value8 += 1
+value4 = 0
+def angousir():
+    global value4
+    if value4 >= 1:
+        typing("Seems you have already went through this town!")
+        t.sleep(1.5)
+        typing("Now go another town to defeat their military general!")
+        return False
+    global gold
+    gold /= 2
+    round(gold)
     typing("You walked a long way to get to this town, and this town looks...")
     t.sleep(1.5)
     typing("Very nice oddly")
@@ -220,8 +369,8 @@ def Angousir():
     t.sleep(1.5)
     typing("This is the rich town!")
     t.sleep(1.5)
-    a_choice = input("What would you like to do in this town?\n'break' for breaking into a mansion\n'shop' to buy somethin\n'grafetti' for vandalizing someone's mansion\n or 'look' to dream about some nice homes").lower()
     while True:
+        a_choice = input("What would you like to do in this town?\n'break' for breaking into a mansion\n'shop' to buy somethin\n'grafetti' for vandalizing someone's mansion\n or 'look' to dream about some nice homes").lower()
         if a_choice == "break":
             typing("So you decide to break into someone's house?")
             t.sleep(1.5)
@@ -244,16 +393,130 @@ def Angousir():
             typing("The second place he looks is in the closet...")
             t.sleep(1.5)
             typing("He sees you in his house!")
+            t.sleep(1.5)
+            typing("Next thing you know...")
             combat(60,r.randint(1,20),40,70)
+            typing("Whether you beat him or not...")
+            t.sleep(1.5)
+            typing("But you barely made it out alive...")
+            value4 += 1
+            break
         elif a_choice == "shop":
             typing("You walk into a nice, organized shop...")
             shop()
+            value4 += 1
+            break
         elif a_choice == "grafetti":
             typing("You chose to vandalize?")
             t.sleep(1.5)
             typing("You're such a little crime commiter")
             t.sleep(1.5)
             typing("You walk over to a mansion that looked the nicest out of any other one")
+            t.sleep(1.5)
+            gra = input("What would you like to write on the guy's mansion\n").lower()
+            t.sleep(1.5)
+            typing(f"You skillfully paint {gra} on the person's mansion...")
+            t.sleep(1.5)
+            typing("Then just as you walk away...")
+            t.sleep(1.5)
+            typing("You hear a man walk behind you...")
+            t.sleep(1.5)
+            typing("It turns out to be the owner of the mansion!")
+            t.sleep(1.5)
+            typing("You wonder what he is going to say...")
+            t.sleep(1.5)
+            typing("Somehow, he ends up liking your art that you made!")
+            t.sleep(1.5)
+            typing("Because of this great masterpiece that you have made...")
+            t.sleep(1.5)
+            typing("He gives you 20 gold!")
+            gold += 20
+            value4 += 1
+            break
+        elif a_choice == "look":
+            typing("You decide to go down the main street in this town")
+            t.sleep(1.5)
+            typing("You look at all the great houses and shops...")
+            t.sleep(1.5)
+            typing("You go into a day dream")
+            t.sleep(1.5)
+            typing("But then you realize you are still trying to save a country...")
+            t.sleep(1.5)
+            typing("...from eternal darkness")
+            t.sleep(1.5)
+            typing("But suddenly you get a little ahead of yourself...")
+            t.sleep(1.5)
+            typing("Thinking...")
+            t.sleep(1.5)
+            typing("Honestly all I have to do is beat this little Dragon King...")
+            t.sleep(1.5)
+            typing("Then I could have everything in this town")
+            t.sleep(1.5)
+            typing("But then you snap back to your senses and remember...")
+            t.sleep(1.5)
+            typing("I must not be selfish...")
+            t.sleep(1.5)
+            typing("This mindset fills you with determination.")
+            value4 += 1
+            break
+        else:
+            typing("That ain't somethin' you can do!")
+    typing("Well, whatever you decided to do, you continue to the other side of the town")
+    t.sleep(1.5)
+    typing("You continue to make your way to the side of the town...")
+    t.sleep(1.5)
+    typing("Closest to the capital.")
+    t.sleep(1.5)
+    typing("Eager to leave onto the next town, you remember...")
+    t.sleep(1.5)
+    typing("You still have to fight a general...")
+    t.sleep(1.5)
+    typing("In order to save this country!")
+    t.sleep(1.5)
+    typing("So you hurry to go find him")
+    t.sleep(1.5)
+    typing("When suddenly you feel a tug on your shirt...")
+    t.sleep(1.5)
+    typing("It's the richest lookin military general you've ever seen")
+    t.sleep(1.5)
+    typing("In this one case only, he gives you a choice")
+    t.sleep(1.5)
+    typing("Do you want to fight him?...")
+    yay_or_nay = input("y or n?\n").lower()
+    t.sleep(1.5)
+    if yay_or_nay == "y":
+        combat(70,r.randint(1,25),50,45)
+    else:
+        typing("Alrighty, you chose not to fight him!")
+    gold *= 2
+    value4 += 1
+def drappes():
+    typing("After a long trek, you've made it to the final town of them all...")
+    t.sleep(1.5)
+    typing("There is some of the tallest buildings that you've ever seen")
+    t.sleep(1.5)
+    typing("But there is only one thing to do in this massive place...")
+    t.sleep(1.5)
+    typing("That is to fight the one and only Dragon King!")
+    t.sleep(1.5)
+    typing("So you venture your way over to the center of the city")
+    t.sleep(1.5)
+    typing("When suddenly you hear over an intercom...")
+    t.sleep(1.5)
+    typing("I already know you're here, little one...")
+    t.sleep(1.5)
+    typing("He suddenly flies over you, towering with his massive wings...")
+    t.sleep(1.5)
+    typing("He lands right in front of you, towering tall over you...")
+    t.sleep(1.5)
+    typing("He says in a menacing voice...")
+    t.sleep(1.5)
+    typing("Now you've came, and are about to get what you wished...")
+    t.sleep(1.5)
+    typing("You begin to fight the Dragon King.")
+    combat(250,r.randint(1,35),80,1000)
+    typing("...")
+    return
 
 start_weapons = {
 "great axe":12,
@@ -394,7 +657,7 @@ while True:
     else:
         typing("Not an actual weapon")
 t.sleep(1.5)
-typing("Here is the list of towns you can go to!\n Belville\n Madland\n Angousir\n Rockshield\n Spiritport\n Whitrock\n Frostpeaks\n or the capital, Drappes")
+typing("Here is the list of towns you can go to!\n Belville\n Madland\n Angousir\n Rockshield\n or the capital, Drappes")
 t.sleep(1.5)
 while True:
     choice = input("Now which town would you like to go to first, to start fighting the Dragon King's army!\n")
@@ -404,6 +667,66 @@ while True:
     elif choice == "Madland":
         madland()
         break
+    elif choice == "Angousir":
+        angousir()
+        break
+    elif choice == "Rockshield":
+        rockshield()
+        break
+    elif choice == "Drappes":
+        typing("Alrighty, if you really want too")
+        drappes()
     else:
         typing("Not a town on the map it seems...")
 """---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"""
+angousir_complete = False
+belville_complete = False
+madland_complete = False
+rockshield_complete = False
+drappes_complete = False
+while not angousir_complete or not belville_complete or not madland_complete or not rockshield_complete or not drappes_complete:
+    choice2 = input("What is the next town that you want to go to?\n")
+    if choice2 == "Belville":
+        belville()
+        belville_complete = True
+    elif choice2 == "Madland":
+        madland()
+        madland_complete = True
+    elif choice2 == "Angousir":
+        angousir()
+        angousir_complete = True
+    elif choice2 == "Rockshield":
+        rockshield()
+        rockshield_complete = True
+    elif choice2 == "Drappes":
+        drappes()
+        drappes_complete = True
+    else:
+        typing("That isn't a town!")
+if angousir_complete and belville_complete and madland_complete and rockshield_complete and drappes_complete:
+    if value5 == 0:
+        typing("You got the worst ending! You defeated 0 bosses")
+        t.sleep(1.5)
+        typing("But at least you tried!")
+    elif value5 == 1:
+        typing("Ay, you didn't do all that bad! You defeated 1 boss")
+        t.sleep(1.5)
+        typing("But you still got the second worst ending")
+    elif value5 == 2:
+        typing("Nice! You defeated 2 bosses!")
+        t.sleep(1.5)
+        typing("You got the third best ending!")
+    elif value5 == 3:
+        typing("You defeated 3 bosses! You did great")
+        t.sleep(1.5)
+        typing("This was the second best ending!")
+    elif value5 >= 4:
+        typing("You defeated 4 or more bosses!")
+        t.sleep(1.5)
+        typing("You got the best ending.")
+    replay = input("Do you want to play again, y or n?\n")
+    if replay == "y":
+        typing("Alrighty, sending you back to the easiest town...")
+        belville()
+    else:
+        typing("Alrighty, you shall be done.")
