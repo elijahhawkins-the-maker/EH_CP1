@@ -198,7 +198,8 @@ def madland():
             typing("Little do you know, this fighting won't be as easy as you thought...")
             combat(50,r.randint(1,18),35,1)
             typing("Seriously why did you think to do that")
-            t.sleep("Anyway...")
+            t.sleep(1.5)
+            typing("Anyway...")
         else:
             typing("You can't do that!")
     typing("Whichever one you did, after you did it, you decide to walk down the main street of this town...")
@@ -250,7 +251,7 @@ def rockshield():
     typing("You've made it to the military town of Draeburg.")
     t.sleep(1.5)
     while True:
-        r_choice = input("Now what would you like to do in this town?\n'shop' for buying somethin\n'train' for doing some military training\n'armor' to go get (may or may not rob) some armor")
+        r_choice = input("Now what would you like to do in this town?\n'shop' for buying somethin\n'train' for doing some military training\n'armor' to go get (may or may not rob) some armor\n")
         if r_choice == "shop":
             typing("You walk into an armory, that is dusty, and hot")
             t.sleep(1.5)
@@ -530,6 +531,7 @@ rare_weapons = {
 "pickaxe":12,
 "musket":10,
 "lightning bolt":15,
+"brick":18
 }
 exotic_weapons = {
 "random cloth":20,
