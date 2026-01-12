@@ -6,9 +6,13 @@ try:
 except ValueError:
     print("This ain't something you can do!")
 
-def save_time():
-    time = input("How often are you contributing money to what you're saving?\nweekly\n or monthly\n")
-    time2 = float(input(f"What amount are you contributing to the money {time}?\n"))
-    goal = float(input("What is the amount of money you are trying to save to?"))
+def tip():
+    tipp = int(input("What is the percentage that you would like to tip?\n"))
+    total = float(input("What is the total of what you are buying?\n"))
 
-
+    
+    tipp /= 100 + 1
+    total *= tipp
+    print(f"Your new total is going to be ${tipp}")
+if usr == 5:
+    tip()
