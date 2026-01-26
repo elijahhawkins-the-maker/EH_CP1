@@ -1,5 +1,8 @@
 #EHCP2
 import random as r
-p_characters = ["A"]
-p_char = r"[A-Z]"
-print(r.choice(p_characters))
+import string
+
+for x in range(6):
+    print(r.choice(string.ascii_lowercase))
+    print(r.choice(string.ascii_uppercase))
+    print(r.randint(1,9))

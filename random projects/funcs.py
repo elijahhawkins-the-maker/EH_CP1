@@ -7,3 +7,4 @@ def typing(text, delay=0.03):
         s.stdout.write(char)
         s.stdout.flush()
         t.sleep(delay)
+
