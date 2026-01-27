@@ -3,6 +3,8 @@ import random as r
 import string
 #string library converts any data set to a string automatically
 import time as t
+import sys
+sys.set_int_max_str_digits(1000000)
 def main():
     #welcomes user to the password generator
     print("Welcome to the Random Password Generator!")
@@ -57,3 +59,4 @@ def pass_input():
         print("You gotta have somethin in your password!")
         t.sleep(2)
 main()
+
