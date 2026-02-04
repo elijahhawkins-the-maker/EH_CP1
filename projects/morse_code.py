@@ -40,6 +40,7 @@ def morse_to_text():
     t.sleep(1.5)
 
 def main_menu():
+    print("Welcome to the morse code translator!\nHere you can see what english is in morse code, and vice versa!")
     #while loop that helps to idiot proof
     while True:
         #try and except for entering integers
