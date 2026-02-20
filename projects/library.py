@@ -29,6 +29,7 @@ def add():
     t.sleep(1)
     return main_menu()
 
+
 def view():
     print("Alrighty here is what you have")
     with open("projects/lib.csv", "r") as library:
