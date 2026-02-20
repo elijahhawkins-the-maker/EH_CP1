@@ -22,24 +22,33 @@ def add():
         "rating": rating,
         "notes": notes
         }
+    try:
+        with open("projects/lib.csv", "r") as file:
+            char = file.read(1)
+            header = not char
+    except FileNotFoundError:
+        header = True
+
     with open("projects/lib.csv", "a", newline = '') as library:
         writer = csv.DictWriter(library, fieldnames=fieldnames)
+
+        if header:
+            writer.writeheader()
+
         writer.writerow(total_inputs)
     print("Now everything has been added to the library")
     t.sleep(1)
     return main_menu()
 
-
 def view():
     print("Alrighty here is what you have")
     with open("projects/lib.csv", "r") as library:
         reader = csv.DictReader(library, fieldnames=fieldnames)
-        for row in reader:
-            print(row)
+        for x in reader:
+            print(x)
             t.sleep(1)
         return main_menu()
         
-
 def remove():
     title = input("What is the title of the book that you want to remove?\n")
     with open("projects/lib.csv", "r") as library:
@@ -78,6 +87,7 @@ def update_item():
                     "rating": new_rating,
                     "notes": new_notes
                     }
+                    
                 with open("projects/lib.csv", "w", newline = '') as library:
                     writer = csv.DictWriter(library, fieldnames=fieldnames)
                     for row in reader:
@@ -87,9 +97,12 @@ def update_item():
                             writer.writerow(total_inputs)
                             print(f"You successfully updated {title} to {new_title}")
                             return main_menu()
-            else:
-                print("That ain't a book in your library")
-                return main_menu()
+        if row["title"] != title:
+            print("That ain't a book in your library")
+            return main_menu()
+        else:
+            print("Bruh")
+            return main_menu()
 
 def main_menu():
     while True:
@@ -105,6 +118,7 @@ def main_menu():
             update_item()
         elif choice == "5":
             print("You chose to exit!")
+            break
             return
         else:
             print("You can't do that!")
