@@ -1,4 +1,5 @@
 #EHCP2 file functions
+from get_time import get_time
 
 def view_info():
     while True:
@@ -34,8 +35,9 @@ def edit_file():
         try:
             with open(file, "a") as f:
                 new_content = input("Please write the new content to add to the file\n")
-                f.write(new_content)
-                print("File content updated successfully.")
+                f.write(" " + new_content)
+                print(f"File content updated successfully.\nTime updated: {get_time()}")
+                f.write(f"\n\nTime Updated: {get_time()}")
                 break
         except FileNotFoundError:
             print("File not found. Please try again.")

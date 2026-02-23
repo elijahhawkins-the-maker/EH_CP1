@@ -1,0 +1,6 @@
+#EHCP2 getting the time
+from datetime import datetime
+
+def get_time():
+    current_time = datetime.now().strftime("%D At %H:%M:%S")
+    return current_time
