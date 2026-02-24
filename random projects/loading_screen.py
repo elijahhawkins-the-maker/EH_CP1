@@ -1,5 +1,5 @@
 import sys
-import time as clock
+import time as t
 
 nums = 2
 
@@ -11,4 +11,4 @@ while True:
 
     print(f"\033[92m{nums}\033[0m")
 
-    clock.sleep(0.006)
+    t.sleep(0.006)
