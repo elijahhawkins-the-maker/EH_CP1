@@ -8,7 +8,7 @@ def view_info():
             with open(file, "r") as f:
                 content = f.read()
                 new_lines = content.count('\n') + 1
-                print("File Info:")
+                print("File Info below:")
                 print(f"File Path: {file}")
                 print(f"File Size: {len(content)} characters")
                 print(f"Number of Lines: {new_lines}")
@@ -35,7 +35,7 @@ def edit_file():
         try:
             with open(file, "a") as f:
                 new_content = input("Please write the new content to add to the file\n")
-                f.write(" " + new_content)
+                f.write("\n" + new_content)
                 print(f"File content updated successfully.\nTime updated: {get_time()}")
                 f.write(f"\n\nTime Updated: {get_time()}")
                 break
