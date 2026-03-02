@@ -1,11 +1,18 @@
 import turtle as t
 
+def choices():
+    screen.tracer(0)
+    color = t.textinput("Turtle Color", "What is the color that you would like the triangle to be?\n").lower()
+    if color:
+        t.color(color)
+    background = t.textinput("Background Color", "Now what is the background color that you would like it to be?\n").lower()
+    if background:
+        t.Screen().bgcolor(background)
+    sierpinski(triangle_points, 8)
+
 gen = t.Turtle()
 screen = t.Screen()
 
-t.bgcolor("black")
-
-gen.color("green")
 gen.shape("blank")
 gen.speed(0)
 
@@ -23,6 +30,7 @@ def triangle(point):
 def midpoint(p1,p2):
     return ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
 
+t.begin_fill()
 def sierpinski(point, depth):
     triangle(point)
 
@@ -34,6 +42,6 @@ def sierpinski(point, depth):
     screen.ontimer(sierpinski, 0)
 
 triangle_points = [(0,600), (-600,-300), (600,-300)]
+t.end_fill()
 
-sierpinski(triangle_points, 8)
 t.done()
