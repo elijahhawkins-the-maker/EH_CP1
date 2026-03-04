@@ -15,17 +15,12 @@ There should be nothing extra you have to install (unless you have to install py
 
 ## list of key features
 ***
-Generates a sierpinski triangle in any color, with a recursion depth of 1-9
+Generates a sierpinski triangle in any color, with a recursion depth of 1-9.
+Simple but good!
 
 ## installation instructions
 ***
-how to install the exe (run file) for the project
+There should be no files you have to install!
 
 ## contributors
-- list of people who worked on the project (github usernames)
-
-## license info
-- normally included here but not applicable to school
-
-## contributions 
-- list of contributions
+elijahhawkins-the-maker
